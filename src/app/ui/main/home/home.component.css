@@ -1,0 +1,113 @@
+.products-header{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0px 20px 0px;
+}
+
+.products-header > div:first-child{
+  display: flex;
+  flex-direction: row;
+}
+
+.products-header > a:hover{
+  text-decoration: none;
+}
+.products-header > a > i{
+  margin-right: 8px;
+}
+.products-header > a{
+  padding-left: 20px;
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+.group{
+  display: flex;
+  font-size: 18px;
+  flex-direction: column;
+  font-family: 'Roboto-midium';
+}
+
+.group>span{
+  font-family: 'Roboto-bold' !important;
+  font-size: 26px;
+  color: var(--link);
+}
+
+.group:first-child{
+  padding-right: 35px;
+  border-right: 2px solid #cecece;
+}
+
+.group:last-child {
+  padding-left: 35px;
+}
+
+.container {
+  margin-bottom: 10px;
+}
+/* .container /deep/ .p-datatable /deep/ .p-datatable-wrapper{
+  font-family: 'Roboto';
+} */
+.container /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tbody > tr > td{
+  font-size: 12px;
+  height: 75px;
+  max-height: 75px;
+}
+.container /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-thead > tr > th.p-sortable-column{
+  font-size: 12px !important;
+}
+.status{
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+.over{
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.bn{
+  display: inline-flex;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+.bn > i{
+  color: white;
+}
+.bn.p{
+  background-color: var(--link);
+  margin-right: 5px;
+}
+.bn.p:hover{
+  background-color: var(--link-dark);
+}
+.bn.n{
+  background-color: var(--danger);
+}
+.bn.n:hover{
+  background-color: var(--danger-dark);
+}
+
+@media screen and (min-width: 740px) {
+  .container /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tfoot > tr > td{
+    font-size: 14px !important;
+  }
+  .container /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-thead > tr > th.p-sortable-column{
+    font-size: 13px !important;
+  }
+  .container /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tbody > tr > td{
+    font-size: 14px !important;
+  }
+}

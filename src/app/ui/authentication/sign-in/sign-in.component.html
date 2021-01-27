@@ -1,0 +1,49 @@
+<div class="m-container">
+  <div class="box">
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="myForm">
+      <div class="column-layout">
+
+        <div class="block">
+          <img class="center logo" src="../../../assets/img/logo.png" alt="logo">
+        </div>
+
+        <label for="username">Korisničko ime</label>
+        <input id="username"
+          #username="ngModel"
+          name="username"
+          ngModel
+          type="text"
+          required >
+        <div style="padding: 8px;">
+          <div *ngIf="username.errors && (username.dirty || username.touched)">
+            <div style="color: #ff9191;">Morate popuniti ovo polje.</div>
+          </div>
+        </div>
+
+        <label for="password">Lozinka</label>
+        <input id="password"
+          name="password"
+          #password="ngModel"
+          ngModel
+          type="password"
+          required >
+        <div style="padding: 8px;">
+          <div *ngIf="!password.valid && password.touched">
+            <div style="color: #ff9191;">Morate popuniti ovo polje.</div>
+          </div>
+        </div>
+
+        <div style="color: #ff9191;" *ngIf="errorMessage !== null">
+          {{errorMessage}}
+        </div>
+        <button class="dis bttn bttn-primary mt-4" type="submit" >Prijavi se</button>
+        <hr style="width: 100%;margin-top: 20px;border-color: white;">
+
+        <button class="bttn bttn-secondary mb-2" routerLink="/auth/sign-up">Napravi nalog</button>
+
+      </div>
+    </form>
+
+  </div>  <!-- Kraj .box -->
+</div>

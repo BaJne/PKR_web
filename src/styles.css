@@ -1,1 +1,185 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  src: url('assets/fonts/Roboto-Regular.ttf');
+  font-family: Roboto;
+}
+@font-face {
+  src: url('assets/fonts/Roboto-Light.ttf');
+  font-family: Roboto-light;
+}
+@font-face {
+  src: url('assets/fonts/Roboto-Medium.ttf');
+  font-family: Roboto-midium;
+}
+@font-face {
+  src: url('assets/fonts/Roboto-Bold.ttf');
+  font-family: Roboto-bold;
+}
+
+html, body {
+  font-family: Roboto, 'Verdana', sans-serif !important;
+  min-height: 100%;
+}
+
+:root{
+  --primary-color: #FFCC00 !important;
+  --secondary-color: #383F47 !important;
+  --link: #2196F3;
+  --link-dark: #1d82d4;
+  --blend: #F8FAFB;
+  --sucess: #1BA345;
+  --danger: #DE3E44;
+  --danger-dark: #a11d21;
+  --dark-bg: #181818;
+}
+
+.bg-primary{ background-color: var(--primary-color); }
+.bg-dark{ background-color: var(--secondary-color); }
+.bg-secondary{ background-color: var(--link); }
+.bg-ligth{ background-color: var(--blend); }
+.bg-success { background-color: var(--sucess); }
+.bg-danger { background-color: var(--danger); }
+
+a {
+  text-decoration: none;
+}
+
+/* Utility classes */
+.mar-5  { margin-top: 5px; }
+.mar-10 { margin-top: 10px; }
+.mar-15 { margin-top: 15px; }
+
+/* buttons */
+.bttn{
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-family: 'Roboto';
+  color: white;
+  transition: all 0.4s;
+}
+.bttn-f{
+  width: 100%;
+}
+.bttn-primary{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+.bttn-primary:hover {
+  background-color: #ffda44;
+}
+
+.bttn-secondary{
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+.bttn-secondary:hover{
+  background-color: #4c555f;
+}
+
+.bttn-link{
+  background-color:var(--link);
+}
+.bttn-link:hover{
+  background-color:var(--link-dark);
+}
+
+.bttn-dark{
+  background-color: var(--dark-bg);
+  color: var(--primary-color);
+}
+.bttn-dark:hover{
+  background-color: var(--secondary-color);
+}
+
+.bttn-adding {
+  background-color: #6dcc6d;
+  color: #333;
+}
+.bttn-adding:hover {
+  background-color: #44aa74;
+}
+
+.error{
+  color: #ff9191;
+}
+
+/* Forme */
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+.inline-layout{
+  display: flex;
+  align-items: center;
+}
+.inline-layout.sb {
+  justify-content: space-between;
+}
+.column-layout{
+  display: flex;
+  flex-direction: column;
+}
+.form-grid{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 5px;
+  column-gap: 8px;
+  align-items: center;
+  align-content: center;
+}
+/* labele */
+.myForm label{
+  margin: 0.492rem 0rem 0.222rem 0rem;
+  font-size: 14px;
+}
+/* Text input */
+.myForm input[type = 'text']{
+  font-size: 14px;
+  color: #333;
+  background: white;
+  padding: 0.222rem;
+  border: 1px solid #a6a6a6;
+  transition: all 0.3s;
+}
+.myForm input[type = 'text']:focus{
+  border-color: #007BFF;
+}
+/* Select input */
+.myForm input[type = 'select']{
+  font-size: 14px;
+  color: #333;
+  background: white;
+  padding: 0.492rem;
+  border: 1px solid #a6a6a6;
+  transition: all 0.3s;
+}
+.myForm input[type = 'text']:focus{
+  border-color: #007BFF;
+}
+/* Cekbox */
+.myForm input[type = 'checkbox']{
+  -webkit-appearance: none;
+  border: 1px solid #a6a6a6;
+  margin: 0px !important;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+	display: inline-block;
+	position: relative;
+}
+.myForm input[type = 'checkbox']:checked {
+  background-color: #2196F3;
+	border-color: #2196F3;
+	color: white;
+}
+.myForm input[type = 'checkbox']:checked:after {
+	content:"✓";
+	font-size: 14px;
+	position: absolute;
+  top: -1px;
+	left: 4px;
+	color: white;
+}
+

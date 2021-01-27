@@ -1,0 +1,157 @@
+<div class="container">
+
+  <h3>Novi proizvod</h3>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-7 col-lg-7 shadow-box">
+
+      <form action="" [formGroup]="newProductForm" (ngSubmit)="makeNewProduct()">
+
+        <div class="labelLink">
+          <label for="product_name" class="required-label">Naziv proizvoda</label>
+          <input type="text"
+                id="product_name"
+                formControlName="name" >
+
+          <div *ngIf="!newProductForm.get('name').valid && newProductForm.get('name').touched ">
+            <div class="error" *ngIf="newProductForm.get('name').errors['required']" >
+              Morate popuniti ovo polje.
+            </div>
+          </div>
+        </div>
+
+        <div class="labelLink">
+          <label for="description">Opis</label>
+          <textarea type="text"
+                id="description"
+                formControlName="description" >
+          </textarea>
+        </div>
+
+        <div class="labelLink">
+          <label for="way_of_use">Način korišćenja</label>
+          <textarea type="text"
+                id="way_of_use"
+                formControlName="way_of_use" >
+          </textarea>
+        </div>
+
+        <div class="formGroup">
+          <!-- Price -->
+          <div class="labelLink">
+
+            <label for="price" class="required-label">Cena</label>
+            <p-inputNumber
+              inputId="price"
+              formControlName="price"
+              [minFractionDigits]="0"
+              suffix=" din.">
+            </p-inputNumber>
+
+            <!-- Displaying errors -->
+            <div *ngIf="!newProductForm.get('price').valid && newProductForm.get('price').touched ">
+              <div class="error" *ngIf="newProductForm.get('price').errors['required']" >
+                Morate popuniti ovo polje.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Repeat password -->
+          <div class="labelLink">
+
+            <label for="stock">Broj proizvoda na stanju</label>
+            <p-inputNumber
+              inputId="stock"
+              formControlName="stock"
+              [min]="0"
+              [minFractionDigits]="0">
+            </p-inputNumber>
+          </div>
+        </div>
+
+        <button
+          class="bttn bttn-link bttn-f"
+          style="margin-top: 30px;"
+          [disabled]="!newProductForm.valid"
+          type="submit"
+          (onSubmit)="makeNewProduct()"
+        >
+          {{isEditMode ? 'Ažurirajte proizvod' : 'Dodaj proizvod'}}
+        </button>
+
+      </form>
+
+    </div>
+
+    <div class="col-sm-12 col-md-5 col-lg-5">
+      <img class="box"
+        src="{{newProductForm.get('picture').value === '' ? 'assets/img/no-img.png' : newProductForm.get('picture').value}}"
+        alt=""
+      >
+      <button (click)="openPanel()" class="bttn bttn-link bttn-f" style="margin: 30px 20px 0px 20px;">
+        Promeni sliku
+      </button>
+    </div>
+
+  </div>
+
+</div>
+<p-sidebar ngClass="sidebar" position="bottom" [(visible)]="displaySidePanel">
+  <div *ngIf="embeddedPictureMode"  class="container" style="padding: 5px;" >
+    <p-scrollPanel [style]="{width: '100%', height: '550px'}">
+      <div class="pictures">
+        <div *ngFor="let pic of predefinedPictures;let i = index">
+          <i *ngIf="i === choosenPicture" class="fas fa-check-square"></i>
+          <img src="{{pic}}" (click)="selectNewPicture(i)" [ngClass]="{'selected': i === choosenPicture}" alt="pic">
+        </div>
+      </div>
+    </p-scrollPanel>
+  </div>
+
+  <div class="container" style="padding: 5px;" customUpload="true" *ngIf="!embeddedPictureMode">
+    <p-fileUpload
+      styleClass="uploader"
+      name="myfile[]"
+      chooseLabel="Izaberi datoteku sa diska"
+      uploadLabel="Otpremite sliku"
+      cancelLabel="Poništi"
+      accept="image/*"
+      maxFileSize="1000000"
+      customUpload="true"
+      (uploadHandler)="uploadImage($event)"
+    >
+    </p-fileUpload>
+  </div>
+
+  <div class="control-sidebar">
+    <div class="container control" style="padding: 20px;">
+
+      <div>
+        <a class="chose-pic"
+          (click)="embeddedPictureMode = true"
+          [ngClass]="{'active': embeddedPictureMode}"
+        >
+          Izaberite sliku
+        </a>
+        <a class="chose-pic"
+          [ngClass]="{'active': !embeddedPictureMode}"
+          (click)="embeddedPictureMode = false"
+        >
+          Učitajte sliku
+        </a>
+      </div>
+
+      <div>
+        <div class="pos" (click)="confirmPictureSelect()" pRipple >
+          <i class="fas fa-check"></i>
+        </div>
+        <div class="neg" (click)="clearPictureSelect()" pRipple>
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</p-sidebar>
+

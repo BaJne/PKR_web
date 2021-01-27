@@ -1,0 +1,103 @@
+<div class="main-container">
+  <form (ngSubmit)="onSubmit()"  [formGroup]="signUpForm" >
+    <div class="content">
+
+        <!-- Username -->
+        <div class="labelLink">
+          <label for="username" class="required-label">Korisničko ime</label>
+          <input type="text"
+                id="username"
+                class="form-control"
+                formControlName="username" >
+          <div *ngIf="!signUpForm.get('username').valid && signUpForm.get('username').touched ">
+            <div class="error" *ngIf="signUpForm.get('username').errors['required']" >
+              Morate popuniti ovo polje.
+            </div>
+          </div>
+        </div>
+
+        <!-- Name -->
+        <div class="labelLink">
+          <label for="name" class="required-label">Naziv</label>
+          <input type="text"
+                id="name"
+                class="form-control"
+                formControlName="name">
+
+          <!-- Displayin errors -->
+          <div *ngIf="!signUpForm.get('name').valid && signUpForm.get('name').touched ">
+            <div class="error" *ngIf="signUpForm.get('name').errors['required']" >
+              Morate popuniti ovo polje.
+            </div>
+          </div>
+        </div>
+
+        <!-- Surname -->
+        <div class="labelLink">
+
+          <label for="surname" class="required-label">Prezime</label>
+          <input type="text"
+                id="surname"
+                class="form-control"
+                formControlName="surname" >
+
+          <!-- Displayin errors -->
+          <div *ngIf="!signUpForm.get('surname').valid && signUpForm.get('surname').touched">
+            <div class="error" *ngIf="signUpForm.get('surname').errors['required']" >
+              Morate popuniti ovo polje.
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- Contact information -->
+        <div class="formGroup">
+
+          <!-- Phone -->
+          <div class="labelLink">
+            <label for="phone" class="required-label">Telefon</label>
+            <input type="text" id="phone"
+              class="form-control"
+              [maxLength]="9"
+              formControlName="phone"
+              (input)="onPhoneInput()">
+
+            <!-- Displayin errors -->
+            <div class="error" *ngIf="!signUpForm.get('phone').valid && signUpForm.get('phone').touched ">
+                Morate popuniti ovo polje.
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="labelLink">
+            <label for="address" class="required-label" >Adresa</label>
+            <input type="text" id="address" class="form-control" formControlName="address">
+
+            <!-- Displayin errors -->
+            <div *ngIf="!signUpForm.get('address').valid && signUpForm.get('address').touched ">
+              <div class="error" *ngIf="signUpForm.get('address').errors['required']" >
+                Morate popuniti ovo polje.
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- End of contract information -->
+
+    </div>
+    <div class="mFooter">
+      <button class="bttn bttn-link bttn-f" [disabled]="!signUpForm.valid" type="submit" >
+        Ažurirajte podatke
+        <i class="fas fa-times-circle" *ngIf="!signUpForm.valid" style="color: rgb(255, 145, 145);"></i>
+        <i class="far fa-check-circle" *ngIf="signUpForm.valid" style="color: #37f573;"></i>
+      </button>
+      <div class="error"style="margin-top:15px;text-align:center" *ngIf="errorMessage">
+        <div>
+          <ul>
+            <li *ngFor="let item of errorMessage" > {{ item }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

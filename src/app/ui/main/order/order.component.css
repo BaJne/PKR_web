@@ -1,0 +1,103 @@
+.main-container {
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.item-head > div {
+  text-align: center !important;
+}
+
+.content /deep/ .p-accordion-toggle-icon {
+  display: none;
+}
+.content /deep/ .p-accordion-header /deep/ a {
+  text-decoration: none;
+  display: block;
+  border: 1px solid #dee2e6 !important;
+}
+.content /deep/ .p-accordion-header-link{
+  margin-bottom: 5px;
+
+}
+.content /deep/ .p-accordion-header /deep/ a:focus {
+  box-shadow: 0 0 0 0px blue !important;
+}
+
+.content /deep/ .p-accordion-tab-active /deep/ a {
+  background-color: var(--secondary-color) !important;
+  color: white !important;
+}
+
+.content /deep/ .p-accordion .p-accordion-content{
+  padding: 1em 2.2em !important;
+}
+.pic {
+  max-width: 100%;
+  height: 80px;
+}
+.content {
+  margin-bottom: 10px;
+}
+.left{
+  text-align: left !important;
+  padding-left: 5px;
+  border-right: 0px solid white !important;
+  border-left-color: var(--primary-color) !important;
+}
+.sub-order > td{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+.sub-order > td:last-child{
+  font-family: 'Roboto-midium' !important;
+  border-left: 0px solid white !important;
+  border-right-color: var(--primary-color) !important;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper{
+  font-family: 'Roboto';
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tbody > tr > td:first-child{
+  text-align: center;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tbody > tr > td{
+  padding: 4px 5px  !important;
+  font-size: 12px;
+  border-left: 1px solid #e9ecef;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tbody > tr > td:last-child{
+  text-align: right;
+  border-right: 1px solid #e9ecef;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-thead > tr > th{
+  border:1px solid #005b9f;
+  background-color: #007ad9;
+  color: white;
+  padding: 8px 0px;
+  font-size: 12px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tfoot > tr > td{
+  padding: 8px 5px;
+  font-size: 11px;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tfoot > tr > td:last-child{
+  text-align: right;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tfoot > tr:last-child > td:last-child{
+  color: #489f48;
+}
+
+@media screen and (min-width: 740px) {
+  .content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tfoot > tr > td{
+    font-size: 15px;
+  }
+  .content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-thead > tr > th{
+    font-size: 16px;
+  }
+  .content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tbody > tr > td{
+    font-size: 15px;
+  }
+}

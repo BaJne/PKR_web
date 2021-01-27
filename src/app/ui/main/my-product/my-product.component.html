@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="products-header">
+    <div>
+      <div class="group">
+        Ukupno proizvoda
+        <span>{{products.length}}</span>
+      </div>
+
+      <div class="group">
+        Nema na stanju
+        <span>{{numOfEmptyStorageProducts}}</span>
+      </div>
+    </div>
+
+    <a class="btn btn-primary" (click)="makeNewProduct()" >
+      <i class="fas fa-plus"></i>
+      Dodajte novi proizvod
+    </a>
+  </div>
+  <hr style="border-width: 2px; margin-top: 0px;">
+
+  <p-messages *ngIf="products.length == 0" severity="info">
+    <ng-template pTemplate>
+      <i class="fas fa-info-circle fa-2x"></i>
+      <div style="margin-left: 20px; color: #0872a3;">Nemate nijednu proizvod u ponudi. Napravite jedan.</div>
+    </ng-template>
+  </p-messages>
+
+  <p-table #dt *ngIf="products.length > 0" [paginator]="true" [rows]="6"  [value]="products"
+    [globalFilterFields]="['name','description', 'way_of_use', 'price']">
+    <ng-template pTemplate="caption">
+      <div class="search">
+          <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+          </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="name" colspan="3">
+          Naziv proizvoda<p-sortIcon field="name">
+        </p-sortIcon></th>
+        <th pSortableColumn="description" colspan="3">
+          Opis<p-sortIcon field="description"></p-sortIcon>
+        </th>
+        <th pSortableColumn="way_of_use" colspan="3">
+          Način korišćenja
+          <p-sortIcon field="way_of_use">
+          </p-sortIcon>
+        </th>
+        <th pSortableColumn="price" colspan="2">
+          Cena
+          <p-sortIcon field="price"></p-sortIcon>
+        </th>
+        <th colspan="2">Na stanju</th>
+        <th style="width: 85px;"></th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-att>
+      <tr>
+        <td colspan="3">{{att.name}}</td>
+        <td colspan="3" pTooltip="{{att.description}}" tooltipPosition="bottom" showDelay="200" hideDelay="300">
+          <div class="over">{{att.description}}</div>
+        </td>
+        <td colspan="3" pTooltip="{{att.way_of_use}}" tooltipPosition="bottom" showDelay="200" hideDelay="300">
+          <div class="over">{{att.way_of_use}}</div>
+        </td>
+        <td colspan="2">{{att.price | number : '1.2-2'}} din.</td>
+        <td colspan="2">{{att.storage}}</td>
+        <td style="width: 85px;padding: 4px 5px !important;">
+          <div class="bn p" pRipple  (click)="editProduct(att)">
+            <i class="fas fa-edit"></i>
+          </div>
+          <div class="bn n" (click)="removeProduct($event, att)" pRipple>
+            <i class="fas fa-times"></i>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginator">
+    </ng-template>
+  </p-table>
+  <p-confirmPopup></p-confirmPopup>
+
+</div>

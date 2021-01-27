@@ -1,0 +1,47 @@
+.log {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  font-size: 15px;
+}
+.m-container {
+  width: 470px;
+  background-color: rgba(0, 0, 0, 0.753);
+
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  color: white;
+  flex-direction: column;
+  font-size: 14px;
+}
+.box{
+  padding: 35px 60px;
+}
+
+.block{
+  display: inline-block;
+  padding: 15px 60px;
+  background-color:rgba(0, 0, 0, 0.753);
+}
+
+.logo{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 125px;
+  height: 45px;
+}
+
+.log > i{
+  font-size: 20px !important;
+  padding-right: 10px;
+}
+
+.success-log {
+  color: #57d692;
+}

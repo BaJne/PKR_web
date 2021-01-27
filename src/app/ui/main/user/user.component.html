@@ -1,0 +1,25 @@
+<div class="main-container">
+  <nav id="sidebar">
+    <h4>Moj nalog</h4>
+    <ul class="list-unstyled user-sidebar">
+      <a routerLink="/main/user/details">
+        <li>
+          <i class="fas fa-users-cog"></i> &nbsp;
+          Korisnički podaci
+        </li>
+      </a>
+      <a routerLink="/main/user/change-password">
+        <li>
+          <i class="fas fa-key"></i> &nbsp;
+          Promena lozinke
+        </li>
+      </a>
+    </ul>
+  </nav>
+
+  <div style="margin: 5px;position: relative;">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+

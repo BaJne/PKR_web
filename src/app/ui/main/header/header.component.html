@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg" style="background-color: var(--secondary-color);">
+  <div class="container">
+    <img class="logo" src="../../../assets/img/logo.png" alt="logo">
+
+    <div class="nav-content">
+      <ul>
+        <a *ngIf="user.myProduct === undefined"
+         class="mainLinks" routerLink="/main/orders" routerLinkActive="activeLink">
+
+          <li>
+            <i class="fas fa-archive"></i>
+            Moje narudžbine
+          </li>
+        </a>
+
+        <a *ngIf="user.myProduct === undefined" class="mainLinks" routerLink="/main/products"
+          routerLinkActive="activeLink" [routerLinkActiveOptions]='{exact: true}'>
+
+          <li>
+            <i class="fab fa-forumbee"></i>
+            Proizvodi
+          </li>
+        </a>
+
+        <a *ngIf="user.myProduct !== undefined"
+          class="mainLinks"
+          routerLink="/main/home"
+          routerLinkActive="activeLink"
+          [routerLinkActiveOptions]='{exact: true}'
+        >
+
+          <li>
+            <i class="fas fa-home"></i>
+            Početna
+          </li>
+        </a>
+
+        <a *ngIf="user.myProduct !== undefined"
+          class="mainLinks" routerLink="/main/my-products" routerLinkActive="activeLink" >
+
+          <li>
+            <i class="fab fa-forumbee"></i>
+            Moji proizvodi
+          </li>
+        </a>
+
+        <a *ngIf="user.myProduct === undefined"
+          class="nav-btn" style="margin-right: 5px;" routerLink="/main/cart">
+          <li id="frst">
+            <i class="fas fa-shopping-cart" style="color: var(--primary-color);"></i>
+            {{ toPay | number: '1.2-2' }} RSD
+          </li>
+        </a>
+
+        <p-slideMenu styleClass="slideMenu" #menu [model]="items" [popup]="true" effectDuration="1000" easing="ease-in"></p-slideMenu>
+        <a *ngIf="user != null" class="nav-btn" style="cursor: pointer;" (click)="menu.toggle($event)">
+          <li id="secn">
+            <i class="fas fa-user-circle"></i>
+            {{user.name + ' ' + user.surename}}
+          </li>
+        </a>
+      </ul>
+
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,198 @@
+.content > h3 {
+  margin: 40px 0px 18px 0px;
+}
+
+.products-header{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0px 20px 0px;
+}
+
+.topp{
+  background-color: var(--blend);margin-bottom: 40px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.products-header > a:hover{
+  text-decoration: none;
+}
+.products-header > a > i{
+  margin-right: 8px;
+}
+.products-header > a{
+  padding-left: 20px;
+  padding-right: 20px;
+  text-decoration: none;
+}
+.group{
+  display: flex;
+  font-size: 18px;
+  flex-direction: column;
+  font-family: 'Roboto-midium';
+}
+
+.group>span{
+  font-family: 'Roboto-bold' !important;
+  font-size: 26px;
+  color: var(--link);
+}
+
+.status{
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper{
+  font-family: 'Roboto';
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tbody > tr > td{
+  padding: 4px 5px  !important;
+  font-size: 12px;
+  border-left: 1px solid #e9ecef;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tbody > tr > td:last-child{
+  text-align: right;
+  border-right: 1px solid #e9ecef;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-thead > tr > th{
+  border:1px solid #005b9f;
+  background-color: #007ad9;
+  color: white;
+  padding: 8px 0px;
+  font-size: 12px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tfoot > tr > td{
+  padding: 8px 5px;
+  font-size: 11px;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tfoot > tr > td:last-child{
+  text-align: right;
+}
+.content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tfoot > tr:last-child > td:last-child{
+  color: #489f48;
+}
+
+.input /deep/ .p-inputtext{
+  width: calc(100% - 2*2.357rem);
+  font-size: 14px;
+}
+
+.input /deep/ .p-inputtext:enabled:focus{
+  box-shadow: 0 0 0 0px;
+}
+
+.orderBtn{
+  width: 160px;
+  margin-top: 15px;
+  margin-left: auto;
+  border-radius: 4px;
+}
+
+.content /deep/ .p-datatable .p-datatable-tbody > tr > td:first-child{
+  text-align: center;
+}
+.pic {
+  max-width: 100%;
+  height: 80px;
+}
+.absolute{
+  position: relative;
+}
+.absolute > i{
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  left: 20px;
+  top: 35px;
+  color: var(--danger);
+}
+.absolute > i:hover{
+  color: var(--danger-dark)
+}
+.left{
+  text-align: left !important;
+  padding-left: 5px;
+  border-right: 0px solid white !important;
+  border-left-color: var(--primary-color) !important;
+}
+.sub-order > td{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+.sub-order > td:last-child{
+  font-family: 'Roboto-midium' !important;
+  border-left: 0px solid white !important;
+  border-right-color: var(--primary-color) !important;
+}
+
+.m-summery{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0px 16px 16px 0px !important;
+  background-color: #383f47;
+  box-sizing: border-box;
+  border: 4px solid #489f48;
+}
+
+.accept{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.accept > button{
+  align-self: flex-end;
+  margin-left: 20px;
+  padding: 0.6rem 1rem !important;
+}
+
+.accept > button.bttn-danger{
+  background-color: var(--danger);
+}
+
+.accept > button.bttn-danger:hover{
+  background-color: var(--danger-dark);
+}
+
+.accept /deep/ .p-datepicker{
+  width: 300px;
+  font-size:16px !important;
+}
+
+.accept /deep/ .p-datepicker table{
+  font-size:13px !important;
+}
+.accept /deep/ .p-datepicker table td > span{
+  width: auto !important;
+  height: auto !important;
+}
+.labelLink {
+  display: flex;
+  flex-direction: column;
+}
+label{
+  margin-top: 10px;
+  padding-bottom: 0px;
+  margin-bottom: 2px;
+  font-size: 12px;
+  color: white;
+}
+@media screen and (min-width: 740px) {
+  .content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tfoot > tr > td{
+    font-size: 15px;
+  }
+  .content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-thead > tr > th{
+    font-size: 16px;
+  }
+  .content /deep/ .p-datatable /deep/ .p-datatable-wrapper /deep/ .p-datatable-tbody > tr > td{
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,71 @@
+<div class="container content">
+
+  <h3>Korpa</h3>
+  <p-messages *ngIf="cart === null || vendorUsernames.length === 0" severity="info">
+    <ng-template pTemplate>
+      <i class="fas fa-info-circle fa-2x"></i>
+      <div style="margin-left: 20px; color: #0872a3;">Nemate nijedan proizvod u korpi.</div>
+    </ng-template>
+  </p-messages>
+
+  <p-table *ngIf="cart !== null && vendorUsernames.length > 0"  [value]="orders">
+    <ng-template pTemplate="header">
+      <tr>
+        <th colspan="2">Slika</th>
+        <th colspan="3">Naziva artikla</th>
+        <th colspan="2">Cena</th>
+        <th pTooltip="Količina" tooltipPosition="top" showDelay="200" hideDelay="300">
+          Količina
+        </th>
+        <th colspan="3">Ukupno</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-att let-rowIndex="rowIndex">
+      <tr class="sub-order">
+        <td colspan="8" class="left">
+          <span class="p-text-bold">{{att.items[0].product.userId}}</span>
+        </td>
+        <td colspan="3">
+          {{att.total_cost | number : '1.2-2'}} din.
+        </td>
+      </tr>
+      <tr *ngFor="let artical of att.items;let column = index">
+        <td colspan="2" class="absolute">
+          <i class="fas fa-times-circle" (click)="removeArticle(artical.product)"></i>
+          <img class="pic" src="{{artical.product.picture}}" alt="">
+        </td>
+        <td colspan="3">{{artical.product.name}}</td>
+        <td colspan="2">{{artical.product.price}} din.</td>
+        <td class="input">
+          <p-inputNumber
+           (onInput)="update(artical, rowIndex, column)"
+           [showButtons]="true"
+           [(ngModel)]="artical.number_of_pieces"
+           [min]="1" ></p-inputNumber>
+        </td>
+        <td colspan="3">
+          {{artical.product.price * artical.number_of_pieces| number : '1.2-2'}} din.
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="8">Transport i dostava</td>
+        <td colspan="3">{{(cart.total_cost > 10000)?'0.00':'500.00'}} din.</td>
+      </tr>
+      <tr>
+        <td colspan="8">Sve ukupno</td>
+        <td colspan="3">
+          {{cart.total_cost + ((cart.total_cost > 10000)?0:500)| number : '1.2-2'}} din.
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <div *ngIf="vendorUsernames.length > 0" style="display: flex;">
+    <button (click)="makeNewOrder()" class="bttn bttn-link orderBtn">Naruči</button>
+  </div>
+
+</div>

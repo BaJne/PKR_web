@@ -1,0 +1,65 @@
+<app-load-animation *ngIf="isLoading" ></app-load-animation>
+
+<div class="product-wrapper" style="position: relative;" *ngIf="product !== null" >
+
+  <div class="backLink" routerLink="../">
+    <i class="fas fa-reply"></i>
+    Nastavi sa pretragom
+  </div>
+
+  <div *ngIf="product" class="row">
+    <div class="product-images col-sm-12 col-md-5 col-lg-5">
+      <img class="box" src="{{product.picture}}" alt="">
+    </div>
+    <div class="col-sm-12 col-md-7 col-lg-7 left-side">
+
+      <div class="product-title">
+        <h3>{{product.name}}</h3>
+        <span   [ngClass]="{'negative': product.storage == 0, 'positive': product.storage > 0}">
+          {{product.storage > 0 ? 'Na stanju' : 'Nema na stanju'}}
+          <span *ngIf="product.storage>0">&nbsp;{{product.storage}}</span>
+        </span>
+      </div>
+
+      <hr>
+
+      <span class="section_title">Opis</span>
+      <div class="description">
+        {{product.description === '' ? 'Nije dodato' : product.description}}
+      </div>
+
+      <span class="section_title">Način upotrebe</span>
+      <div class="description">
+        {{product.way_of_use === '' ? 'Nije dodato' : product.way_of_use}}
+      </div>
+
+      <div class="price">
+        <span class="price-span">
+          {{product.price | number : '1.2-2'}}
+           din.
+        </span>
+
+        <div class="product-order">
+          <p-inputNumber [showButtons]="true" [(ngModel)]="itemCount" [min]="1" [max]="product.storage"></p-inputNumber>
+          <button id="Order" class="bttn bttn-primary" (click)="addToCart()" [disabled]="product.storage <= 0" >
+            <i class="fas fa-shopping-cart"></i>
+            Stavi u korpu
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="container" style="margin-top: 50px;">
+  <p-messages *ngIf="!product && !isLoading" severity="info">
+    <ng-template pTemplate>
+      <i class="fas fa-info-circle fa-2x"></i>
+      <div style="margin-left: 20px; color: #0872a3;">
+        Proizvod nije pronadjen! &nbsp;&nbsp;
+        <a style="text-decoration: none;" routerLink="../">Vratite se nazad</a>
+      </div>
+    </ng-template>
+  </p-messages>
+</div>

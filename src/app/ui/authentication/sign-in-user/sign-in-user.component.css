@@ -1,0 +1,122 @@
+.m-component{
+  max-width: 700px;
+  width: 100%;
+  /* min-width: 100%; */
+
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: rgba(0, 0, 0, 0.733);
+
+  border-radius: 20px;
+  color: white;
+}
+
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  padding: 28px 50px;
+  font-family: 'Roboto-midium';
+  color: black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.title > h3 {
+  margin-bottom: 0px;
+}
+
+.go-back{
+  color: #0052AA;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.4s;
+}
+.go-back:hover{
+  color: #0078de;
+}
+
+.content{
+  padding: 20px 42px 32px 42px;
+}
+
+.mFooter{
+  background-color: var(--primary-color);
+  padding: 28px 42px;
+  font-family: 'Roboto-midium';
+  color: var(--secondary-color);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.mFooter > button{
+  background-color: var(--dark-bg);
+  color: #37f573;
+  transition: all 0.4s;
+  margin: 0px;
+}
+.mFooter > button:disabled{
+  cursor: not-allowed;
+  color: rgb(255, 145, 145);
+}
+.mFooter > button:disabled:hover{
+  background-color: var(--dark-bg)
+}
+
+.mFooter > button:hover{
+  background-color: var(--secondary-color);
+}
+
+.mFooter > button > i {
+  margin-left: 10px;
+}
+
+.formGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+@media screen and (max-width: 500px) {
+  .formGroup{
+    grid-template-columns: 1fr;
+  }
+}
+
+.labelLink {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.btn-registrationType {
+  border: 2px solid white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px;
+  background-color: transparent;
+}
+
+label{
+  margin-top: 10px;
+}
+.required-label::after {
+  content: '*';
+  font-size: 11px;
+  top: -5px;
+  left: 3px;
+  position: relative;
+  color:rgb(255, 145, 145);
+}
+.error{
+  font-size: 14px;
+}
+.successful-log {
+  padding: 35px 55px 20px 15px;
+  font-size: 14px;
+}
+.successful-log i {
+  color: #11a29f;
+}

@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="products-header">
+    <div>
+      <div class="group">
+        Neobrađene narudžbine
+        <span>{{notProcessed}}</span>
+      </div>
+
+      <div class="group">
+        Ukupno prodaja
+        <span>{{totalSells}}</span>
+      </div>
+    </div>
+
+
+    <div class="group last">
+      Ukupno zarada
+      <span>{{totalEarning| number : '1.2-2'}} din.</span>
+    </div>
+  </div>
+
+  <hr style="border-width: 2px; margin-top: 0px;">
+
+  <p-messages *ngIf="orders.length === 0" severity="info">
+    <ng-template pTemplate>
+      <i class="fas fa-info-circle fa-2x"></i>
+      <div style="margin-left: 20px; color: #0872a3;">Nemate nijednu narudžbinu.</div>
+    </ng-template>
+  </p-messages>
+
+  <p-table #dt *ngIf="orders.length > 0" [paginator]="true" [rows]="6"  [value]="orders"
+    [globalFilterFields]="['id','date', 'art_count', 'price', 'status']">
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id" colspan="2">
+          ID Narudžbine
+          <p-sortIcon field="id">
+          </p-sortIcon>
+        </th>
+        <th pSortableColumn="date" colspan="2">
+          Datum porudžbine
+          <p-sortIcon field="date"></p-sortIcon>
+        </th>
+        <th pSortableColumn="art_count" colspan="2">
+          Broj proizvoda
+          <p-sortIcon field="art_count">
+          </p-sortIcon>
+        </th>
+        <th pSortableColumn="price" colspan="2">
+          Vrednost narudžbine
+          <p-sortIcon field="price"></p-sortIcon>
+        </th>
+        <th colspan="2" pSortableColumn="status">
+          Status porudžbine
+          <p-sortIcon field="status"></p-sortIcon>
+        </th>
+        <th style="width: 40px;"></th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-att>
+      <tr>
+        <td colspan="2">
+          {{att.id}}
+        </td>
+        <td colspan="2">
+          {{att.orderDate | date}}
+        </td>
+        <td colspan="2">
+          {{att.total_items}}
+        </td>
+        <td colspan="2">
+          {{att.total_cost | number : '1.2-2'}} din.
+        </td>
+        <td colspan="2">
+          <span class="status" [ngStyle]="{'background-color': att.status.color}">
+            {{att.status.value}}
+          </span>
+        </td>
+
+        <td style="width: 40px;padding: 0px 0px;">
+          <div class="bn p" *ngIf="canModify(att.status)" (click)="process(att)" pRipple>
+            <i class="fas fa-edit"></i>
+          </div>
+          <div class="bn p" *ngIf="!canModify(att.status)" (click)="process(att)" pRipple>
+            <i class="fas fa-search"></i>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginator">
+    </ng-template>
+  </p-table>
+
+</div>

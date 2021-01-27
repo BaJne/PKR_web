@@ -1,0 +1,43 @@
+<div style="padding: 20px 0px;">
+  <div class="container control-top">
+    <div class="search-bar">
+      <div class="searchbtn">
+        <i class="fas fa-search"></i>
+      </div>
+      <input type="text" placeholder="Pretrazite po nazivu" [(ngModel)]="searchText" (input)="onSearch()">
+
+    </div>
+    <p-paginator (onPageChange)="paginate($event)" [rows]="15" [totalRecords]="products.length"></p-paginator>
+    <div>
+      <p-dropdown (onChange)="selectSort()" [options]="sortOptions" placeholder="Sortiraj po" [(ngModel)]="selectedSortOption" optionLabel="name"></p-dropdown>
+    </div>
+  </div>
+</div>
+<div style="background-color: var(--blend);">
+  <div class="items"  >
+    <div *ngFor="let product of productToDisplay">
+
+      <div class="item" style="flex: 1;" (click)="onProductDetail(product)" >
+        <div id="picture">
+          <img
+            src="{{(product.picture !== null) ? product.picture: 'assets/img/no-img.png'}}"
+            alt="">
+        </div>
+
+        <div id="name">
+          <span>
+            {{ product.name }}
+          </span>
+        </div>
+
+        <div id="price">
+          <span>{{ product.price | number : '1.2-2'}} din.</span>
+        </div>
+
+      </div>
+
+    </div>
+</div>
+</div>
+<!-- TODO add paginator tab -->
+
